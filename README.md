@@ -103,7 +103,7 @@ Parse CSV values from a file.
 - `$length` is a number representing the maximum line length, and will default to *0*.
 - `$separator` is a string representing the field separator, and will default to "*,*".
 - `$enclosure` is a string representing the field enclosure character, and will default to "*"*".
-- `$escape` is a string representing the escape character, and will default to "*\*".
+- `$escape` is a string representing the escape character, and will default to "*\\*".
 
 ```php
 $data = $file->csv($length, $separator, $enclosure, $escape);
