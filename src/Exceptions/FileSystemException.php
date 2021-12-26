@@ -9,6 +9,9 @@ use
 use function
     error_get_last;
 
+/**
+ * FileSystemException
+ */
 class FileSystemException extends RuntimeException
 {
 
