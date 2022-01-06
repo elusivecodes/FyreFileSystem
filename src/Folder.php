@@ -83,7 +83,7 @@ class Folder
      * @return Folder The Folder.
      * @throws FileSystemException if the folder could not be copied.
      */
-    public function copy(string $destination, bool $overwrite = true): self
+    public function copy(string $destination, bool $overwrite = true): static
     {
         $this->checkExists();
 
@@ -131,7 +131,7 @@ class Folder
      * @return Folder The Folder.
      * @throws FileSystemException if the folder exists or creation fails.
      */
-    public function create(int $permissions = 0755): self
+    public function create(int $permissions = 0755): static
     {
         if ($this->exists()) {
             throw FileSystemException::forFolderExists($this->path);
@@ -149,7 +149,7 @@ class Folder
      * @return Folder The Folder.
      * @throws FileSystemException if the folder could not be removed.
      */
-    public function delete(): self
+    public function delete(): static
     {
         $this->empty();
 
@@ -165,7 +165,7 @@ class Folder
      * @return Folder The Folder.
      * @throws FileSystemException if the folder could not be emptied.
      */
-    public function empty(): self
+    public function empty(): static
     {
         foreach ($this->getIterator(RecursiveIteratorIterator::CHILD_FIRST) AS $item) {
             $filePath = $item->getPathname();
@@ -210,7 +210,7 @@ class Folder
      * @param bool $overwrite Whether to overwrite existing files.
      * @return Folder The Folder.
      */
-    public function move(string $destination, bool $overwrite = true): self
+    public function move(string $destination, bool $overwrite = true): static
     {
         $this->copy($destination, $overwrite);
         $this->delete();

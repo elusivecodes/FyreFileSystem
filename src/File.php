@@ -112,7 +112,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the permissions could not be updated.
      */
-    public function chmod(int $permissions): self
+    public function chmod(int $permissions): static
     {
         $this->checkExists();
 
@@ -128,7 +128,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the handle could not be closed.
      */
-    public function close(): self
+    public function close(): static
     {
         $this->checkHandle();
 
@@ -166,7 +166,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the file could not be copied.
      */
-    public function copy(string $destination, bool $overwrite = true): self
+    public function copy(string $destination, bool $overwrite = true): static
     {
         if (file_exists($destination) && !$overwrite) {
             throw FileSystemException::forFileExists($destination);
@@ -191,7 +191,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the file exists.
      */
-    public function create(): self
+    public function create(): static
     {
         if ($this->exists()) {
             throw FileSystemException::forFileExists($this->path);
@@ -235,7 +235,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the file could not be deleted.
      */
-    public function delete(): self
+    public function delete(): static
     {
         $this->checkExists();
 
@@ -349,15 +349,15 @@ class File
 
     /**
      * Lock the file handle.
-     * @param int $operation The lock operation.
+     * @param int|null $operation The lock operation.
      * @return File The File.
      * @throws FileSystemException if the lock could not be acquired.
      */
-    public function lock(int $operation = self::LOCK_SHARED): self
+    public function lock(int|null $operation = null): static
     {
         $this->checkHandle();
 
-        if (!flock($this->handle, $operation)) {
+        if (!flock($this->handle, $operation ?? static::LOCK_SHARED)) {
             throw FileSystemException::forLastError();
         }
 
@@ -403,7 +403,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the handle could not be opened.
      */
-    public function open(string $mode = 'r'): self
+    public function open(string $mode = 'r'): static
     {
         $this->handle = fopen($this->path, $mode);
 
@@ -483,7 +483,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the handle could not be rewound.
      */
-    public function rewind(): self
+    public function rewind(): static
     {
         $this->checkHandle();
 
@@ -500,7 +500,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the seek fails.
      */
-    public function seek(int $offset): self
+    public function seek(int $offset): static
     {
         $this->checkHandle();
 
@@ -554,7 +554,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the file could not be touched.
      */
-    public function touch(int|null $time = null, int|null $accessTime = null): self
+    public function touch(int|null $time = null, int|null $accessTime = null): static
     {
         $time ??= time();
 
@@ -571,7 +571,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the file could not be truncated.
      */
-    public function truncate(int $size = 0): self
+    public function truncate(int $size = 0): static
     {
         $this->checkHandle();
 
@@ -586,9 +586,9 @@ class File
      * Unlock the file handle.
      * @return File The File.
      */
-    public function unlock(): self
+    public function unlock(): static
     {
-        return $this->lock(self::UNLOCK);
+        return $this->lock(static::UNLOCK);
     }
 
     /**
@@ -597,7 +597,7 @@ class File
      * @return File The File.
      * @throws FileSystemException if the data could not be written.
      */
-    public function write(string $data): self
+    public function write(string $data): static
     {
         $this->checkHandle();
 
