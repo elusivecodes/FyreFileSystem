@@ -20,7 +20,7 @@ trait PermissionsTest
 
         $perms = fileperms('tmp/test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             decoct($perms & 0777),
             $file->permissions()
         );

@@ -39,8 +39,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test.txt');
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $file->exists()
         );
     }
@@ -49,8 +48,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test.txt', true);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->exists()
         );
     }
@@ -59,8 +57,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt', true);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->exists()
         );
     }
@@ -69,7 +66,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             'test.txt',
             $file->baseName()
         );
@@ -79,7 +76,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test'),
             $file->dirName()
         );
@@ -89,7 +86,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             'txt',
             $file->extension()
         );
@@ -99,7 +96,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             'test',
             $file->fileName()
         );
@@ -114,7 +111,7 @@ final class FileTest extends TestCase
             $file->folder()
         );
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test'),
             $file->folder()->path()
         );
@@ -124,8 +121,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt', true);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->isExecutable()
         );
     }
@@ -134,8 +130,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt', true);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->isReadable()
         );
     }
@@ -144,8 +139,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt', true);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->isWritable()
         );
     }
@@ -154,7 +148,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test/test.txt'),
             $file->path()
         );
@@ -164,7 +158,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/../test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test.txt'),
             $file->path()
         );

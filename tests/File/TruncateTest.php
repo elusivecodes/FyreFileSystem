@@ -16,14 +16,14 @@ trait TruncateTest
         $file->open('w');
         $file->write('test');
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->truncate()
         );
 
         $file->close();
 
-        $this->assertEquals(
+        $this->assertSame(
             '',
             $file->contents()
         );
@@ -37,7 +37,7 @@ trait TruncateTest
         $file->truncate(2);
         $file->close();
 
-        $this->assertEquals(
+        $this->assertSame(
             'te',
             $file->contents()
         );

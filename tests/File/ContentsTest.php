@@ -17,7 +17,7 @@ trait ContentsTest
         $file->write('test');
         $file->close();
 
-        $this->assertEquals(
+        $this->assertSame(
             'test',
             $file->contents()
         );

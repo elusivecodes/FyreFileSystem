@@ -21,7 +21,7 @@ trait AccessTimeTest
 
         $file->touch($time, $time);
 
-        $this->assertEquals(
+        $this->assertSame(
             $time,
             $file->accessTime()
         );

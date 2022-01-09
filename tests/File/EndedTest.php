@@ -16,15 +16,13 @@ trait EndedTest
         $file->open('w+');
         $file->write('test');
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $file->ended()
         );
 
         $file->read(1);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->ended()
         );
     }
@@ -35,8 +33,7 @@ trait EndedTest
         $file->open('r');
         $file->read(1);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->ended()
         );
     }

@@ -14,13 +14,12 @@ trait DeleteTest
     {
         $file = new File('tmp/test/test.txt', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->delete()
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $file->exists()
         );
     }

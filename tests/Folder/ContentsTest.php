@@ -16,7 +16,7 @@ trait ContentsTest
     {
         $folder = new Folder('tmp/test', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             [],
             $folder->contents()
         );
@@ -39,7 +39,7 @@ trait ContentsTest
             $contents[0]
         );
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test/deep'),
             $contents[0]->path()
         );
@@ -62,7 +62,7 @@ trait ContentsTest
             $contents[0]
         );
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test/test.txt'),
             $contents[0]->path()
         );

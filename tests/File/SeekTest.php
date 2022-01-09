@@ -16,12 +16,12 @@ trait SeekTest
         $file->open('w');
         $file->write('test');
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->seek(2)
         );
 
-        $this->assertEquals(
+        $this->assertSame(
             2,
             $file->tell()
         );

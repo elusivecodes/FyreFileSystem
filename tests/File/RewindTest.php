@@ -16,12 +16,12 @@ trait RewindTest
         $file->open('w');
         $file->write('test');
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->rewind()
         );
 
-        $this->assertEquals(
+        $this->assertSame(
             0,
             $file->tell()
         );

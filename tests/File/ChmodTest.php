@@ -14,7 +14,7 @@ trait ChmodTest
     {
         $file = new File('tmp/test.txt', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->chmod(777)
         );

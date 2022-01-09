@@ -17,7 +17,7 @@ trait ReadTest
         $file->write('test');
         $file->rewind();
 
-        $this->assertEquals(
+        $this->assertSame(
             'te',
             $file->read(2)
         );

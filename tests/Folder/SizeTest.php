@@ -15,7 +15,7 @@ trait SizeTest
     {
         $folder = new Folder('tmp/test', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             0,
             $folder->size()
         );
@@ -30,7 +30,7 @@ trait SizeTest
         $file->write('test');
         $file->close();
 
-        $this->assertEquals(
+        $this->assertSame(
             4100,
             $folder->size()
         );

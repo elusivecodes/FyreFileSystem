@@ -15,7 +15,7 @@ trait LockTest
         $file = new File('tmp/test.txt', true);
         $file->open('r');
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->lock()
         );
@@ -26,7 +26,7 @@ trait LockTest
         $file = new File('tmp/test.txt', true);
         $file->open('r');
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->unlock()
         );

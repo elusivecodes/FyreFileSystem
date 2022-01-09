@@ -14,15 +14,14 @@ trait CopyTest
     {
         $file = new File('tmp/test.txt', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->copy('tmp/test2.txt')
         );
 
         $file2 = new File('tmp/test2.txt');
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file2->exists()
         );
     }

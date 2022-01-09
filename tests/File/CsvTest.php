@@ -19,13 +19,13 @@ trait CsvTest
         $file->write('5,6,7,8');
         $file->rewind();
 
-        $this->assertEquals(
-            [1,2,3,4],
+        $this->assertSame(
+            ['1','2','3','4'],
             $file->csv()
         );
 
-        $this->assertEquals(
-            [5,6,7,8],
+        $this->assertSame(
+            ['5','6','7','8'],
             $file->csv()
         );
     }

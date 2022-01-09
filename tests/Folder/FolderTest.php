@@ -26,8 +26,7 @@ final class FolderTest extends TestCase
     {
         $folder = new Folder('tmp/test');
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $folder->exists()
         );
     }
@@ -36,8 +35,7 @@ final class FolderTest extends TestCase
     {
         $folder = new Folder('tmp/test', true);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->exists()
         );
     }
@@ -46,7 +44,7 @@ final class FolderTest extends TestCase
     {
         $folder = new Folder('tmp/test', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test'),
             $folder->path()
         );
@@ -56,7 +54,7 @@ final class FolderTest extends TestCase
     {
         $folder = new Folder('tmp/test/../test2', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test2'),
             $folder->path()
         );

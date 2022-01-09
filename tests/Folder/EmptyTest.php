@@ -15,13 +15,12 @@ trait EmptyTest
     {
         $folder = new Folder('tmp/test', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             $folder,
             $folder->empty()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->exists()
         );
     }
@@ -31,18 +30,16 @@ trait EmptyTest
         $folder = new Folder('tmp/test', true);
         $file = new File('tmp/test/deep/test.txt', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             $folder,
             $folder->empty()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->exists()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->isEmpty()
         );
     }

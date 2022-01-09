@@ -15,13 +15,12 @@ trait DeleteTest
     {
         $folder = new Folder('tmp/test2', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             $folder,
             $folder->delete()
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $folder->exists()
         );
     }
@@ -33,13 +32,11 @@ trait DeleteTest
 
         $folder->delete();
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $file->exists()
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $folder->exists()
         );
     }

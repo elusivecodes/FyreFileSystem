@@ -16,25 +16,23 @@ trait MoveTest
     {
         $folder = new Folder('tmp/test', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             $folder,
             $folder->move('tmp/test2')
         );
 
         $folder2 = new Folder('tmp/test');
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test2'),
             $folder->path()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->exists()
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $folder2->exists()
         );
     }
@@ -49,28 +47,24 @@ trait MoveTest
         $folder2 = new Folder('tmp/test');
         $file2 = new File('tmp/test2/deep/test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test2'),
             $folder->path()
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $folder2->exists()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->exists()
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $file->exists()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file2->exists()
         );
     }

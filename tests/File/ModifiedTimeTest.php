@@ -21,7 +21,7 @@ trait ModifiedTimeTest
 
         $file->touch($time);
 
-        $this->assertEquals(
+        $this->assertSame(
             $time,
             $file->modifiedTime()
         );

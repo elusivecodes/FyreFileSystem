@@ -17,7 +17,7 @@ trait SizeTest
         $file->write('test');
         $file->close();
 
-        $this->assertEquals(
+        $this->assertSame(
             4,
             $file->size()
         );

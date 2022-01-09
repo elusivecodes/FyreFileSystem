@@ -17,7 +17,7 @@ trait OwnerTest
     {
         $file = new File('tmp/test.txt', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             fileowner('tmp/test.txt'),
             $file->owner()
         );

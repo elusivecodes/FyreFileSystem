@@ -17,7 +17,7 @@ trait MimeTypeTest
         $file->write('test');
         $file->close();
 
-        $this->assertEquals(
+        $this->assertSame(
             'text/plain',
             $file->mimeType()
         );

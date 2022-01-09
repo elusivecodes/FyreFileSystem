@@ -16,25 +16,23 @@ trait CopyTest
     {
         $folder = new Folder('tmp/test', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             $folder,
             $folder->copy('tmp/test2')
         );
 
         $folder2 = new Folder('tmp/test2');
 
-        $this->assertEquals(
+        $this->assertSame(
             Path::resolve('tmp/test'),
             $folder->path()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->exists()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder2->exists()
         );
     }
@@ -48,13 +46,11 @@ trait CopyTest
 
         $file2 = new File('tmp/test2/deep/test.txt');
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->exists()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file2->exists()
         );
     }

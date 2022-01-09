@@ -14,13 +14,12 @@ trait CreateTest
     {
         $file = new File('tmp/test.txt');
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->create()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->exists()
         );
     }
@@ -31,8 +30,7 @@ trait CreateTest
 
         $file->create();
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $file->exists()
         );
     }

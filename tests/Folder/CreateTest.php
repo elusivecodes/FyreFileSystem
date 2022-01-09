@@ -15,13 +15,12 @@ trait CreateTest
     {
         $folder = new Folder('tmp/test');
 
-        $this->assertEquals(
+        $this->assertSame(
             $folder,
             $folder->create()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->exists()
         );
     }

@@ -15,8 +15,7 @@ trait IsEmptyTest
     {
         $folder = new Folder('tmp/test', true);
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $folder->isEmpty()
         );
     }
@@ -26,8 +25,7 @@ trait IsEmptyTest
         $folder = new Folder('tmp/test', true);
         $folder2 = new Folder('tmp/test/deep', true);
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $folder->isEmpty()
         );
     }
@@ -37,8 +35,7 @@ trait IsEmptyTest
         $folder = new Folder('tmp/test', true);
         $file = new File('tmp/test/test.txt', true);
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $folder->isEmpty()
         );
     }

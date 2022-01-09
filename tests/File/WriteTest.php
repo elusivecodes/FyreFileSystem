@@ -15,14 +15,14 @@ trait WriteTest
         $file = new File('tmp/test/test.txt', true);
         $file->open('w');
 
-        $this->assertEquals(
+        $this->assertSame(
             $file,
             $file->write('test')
         );
 
         $file->close();
 
-        $this->assertEquals(
+        $this->assertSame(
             'test',
             $file->contents()
         );
@@ -36,7 +36,7 @@ trait WriteTest
         $file->write('1');
         $file->close();
 
-        $this->assertEquals(
+        $this->assertSame(
             'test1',
             $file->contents()
         );

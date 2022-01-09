@@ -17,7 +17,7 @@ trait GroupTest
     {
         $file = new File('tmp/test.txt', true);
 
-        $this->assertEquals(
+        $this->assertSame(
             filegroup('tmp/test.txt'),
             $file->group()
         );
