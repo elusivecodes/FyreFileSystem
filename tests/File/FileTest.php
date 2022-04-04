@@ -121,7 +121,7 @@ final class FileTest extends TestCase
     {
         $file = new File('tmp/test/test.txt', true);
 
-        $this->assertTrue(
+        $this->assertFalse(
             $file->isExecutable()
         );
     }
