@@ -23,7 +23,6 @@
         "phpunit/phpunit": "^9"
     },
     "require": {
-        "fyre/error": "^1.0",
         "fyre/path": "^1.0"
     }
 }

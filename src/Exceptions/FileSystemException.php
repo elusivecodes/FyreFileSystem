@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Fyre\FileSystem\Exceptions;
 
 use
-    Fyre\Error\Exceptions\Exception;
+    RuntimeException;
 
 use function
     error_get_last;
@@ -12,7 +12,7 @@ use function
 /**
  * FileSystemException
  */
-class FileSystemException extends Exception
+class FileSystemException extends RuntimeException
 {
 
     public static function forFileExists(string $path): static
