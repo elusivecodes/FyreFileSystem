@@ -221,6 +221,15 @@ class Folder
     }
 
     /**
+     * Get the folder name.
+     * @return string The folder name.
+     */
+    public function name(): string
+    {
+        return Path::baseName($this->path);
+    }
+
+    /**
      * Get the full path to the folder.
      * @return string The full path.
      */

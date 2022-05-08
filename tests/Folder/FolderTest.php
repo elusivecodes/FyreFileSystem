@@ -40,6 +40,16 @@ final class FolderTest extends TestCase
         );
     }
 
+    public function testName(): void
+    {
+        $folder = new Folder('tmp/test', true);
+
+        $this->assertSame(
+            'test',
+            $folder->name()
+        );
+    }
+
     public function testPath(): void
     {
         $folder = new Folder('tmp/test', true);

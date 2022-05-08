@@ -425,6 +425,14 @@ Move the folder to a new destination.
 $folder->move($destination, $overwrite);
 ```
 
+**Name**
+
+Get the folder name.
+
+```php
+$name = $folder->name();
+```
+
 **Path**
 
 Get the full path to the folder.
