@@ -3,11 +3,10 @@ declare(strict_types=1);
 
 namespace Tests\File;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
 
-trait LockTest
+trait LockTestTrait
 {
 
     public function testLock(): void

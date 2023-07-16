@@ -3,13 +3,12 @@ declare(strict_types=1);
 
 namespace Tests\Folder;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File,
-    Fyre\FileSystem\Folder,
-    Fyre\Utility\Path;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
+use Fyre\FileSystem\Folder;
+use Fyre\Utility\Path;
 
-trait ContentsTest
+trait ContentsTestTrait
 {
 
     public function testContents(): void

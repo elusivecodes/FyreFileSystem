@@ -3,15 +3,13 @@ declare(strict_types=1);
 
 namespace Tests\File;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
 
-use function
-    decoct,
-    fileperms;
+use function decoct;
+use function fileperms;
 
-trait PermissionsTest
+trait PermissionsTestTrait
 {
 
     public function testPermissions(): void

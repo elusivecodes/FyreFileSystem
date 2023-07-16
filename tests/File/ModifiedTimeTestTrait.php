@@ -3,36 +3,34 @@ declare(strict_types=1);
 
 namespace Tests\File;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
 
-use function
-    time;
+use function time;
 
-trait AccessTimeTest
+trait ModifiedTimeTestTrait
 {
 
-    public function testAccessTime(): void
+    public function testModifiedTime(): void
     {
         $time = time();
 
         $file = new File('tmp/test.txt', true);
 
-        $file->touch($time, $time);
+        $file->touch($time);
 
         $this->assertSame(
             $time,
-            $file->accessTime()
+            $file->modifiedTime()
         );
     }
 
-    public function testAccessTimeNotExists(): void
+    public function testModifiedTimeNotExists(): void
     {
         $this->expectException(FileSystemException::class);
 
         $file = new File('tmp/test.txt');
-        $file->accessTime();
+        $file->modifiedTime();
     }
 
 }

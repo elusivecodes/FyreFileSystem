@@ -3,11 +3,9 @@ declare(strict_types=1);
 
 namespace Fyre\FileSystem\Exceptions;
 
-use
-    RuntimeException;
+use RuntimeException;
 
-use function
-    error_get_last;
+use function error_get_last;
 
 /**
  * FileSystemException

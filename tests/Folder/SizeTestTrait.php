@@ -3,12 +3,11 @@ declare(strict_types=1);
 
 namespace Tests\Folder;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File,
-    Fyre\FileSystem\Folder;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
+use Fyre\FileSystem\Folder;
 
-trait SizeTest
+trait SizeTestTrait
 {
 
     public function testSize(): void

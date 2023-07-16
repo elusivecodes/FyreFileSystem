@@ -3,30 +3,27 @@ declare(strict_types=1);
 
 namespace Fyre\FileSystem;
 
-use
-    FileSystemIterator,
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\Utility\Path,
-    RecursiveDirectoryIterator,
-    RecursiveIteratorIterator;
+use FileSystemIterator;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\Utility\Path;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
-use const
-    DIRECTORY_SEPARATOR;
+use const DIRECTORY_SEPARATOR;
 
-use function
-    chmod,
-    copy,
-    file_exists,
-    fileatime,
-    filemtime,
-    fileperms,
-    is_dir,
-    mkdir,
-    rmdir,
-    rtrim,
-    str_replace,
-    touch,
-    unlink;
+use function chmod;
+use function copy;
+use function file_exists;
+use function fileatime;
+use function filemtime;
+use function fileperms;
+use function is_dir;
+use function mkdir;
+use function rmdir;
+use function rtrim;
+use function str_replace;
+use function touch;
+use function unlink;
 
 /**
  * Folder

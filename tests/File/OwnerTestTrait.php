@@ -3,14 +3,12 @@ declare(strict_types=1);
 
 namespace Tests\File;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
 
-use function
-    fileowner;
+use function fileowner;
 
-trait OwnerTest
+trait OwnerTestTrait
 {
 
     public function testOwner(): void

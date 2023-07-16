@@ -3,14 +3,12 @@ declare(strict_types=1);
 
 namespace Tests\File;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
 
-use function
-    filegroup;
+use function filegroup;
 
-trait GroupTest
+trait GroupTestTrait
 {
 
     public function testGroup(): void

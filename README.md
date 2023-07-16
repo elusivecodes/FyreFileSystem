@@ -1,6 +1,6 @@
 # FyreFileSystem
 
-**FyreFileSystem** is a free, file/folder library for *PHP*.
+**FyreFileSystem** is a free, open-source file/folder library for *PHP*.
 
 
 ## Table Of Contents

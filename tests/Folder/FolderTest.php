@@ -3,24 +3,22 @@ declare(strict_types=1);
 
 namespace Tests\Folder;
 
-use
-    Fyre\FileSystem\File,
-    Fyre\FileSystem\Folder,
-    Fyre\Utility\Path,
-    PHPUnit\Framework\TestCase;
+use Fyre\FileSystem\File;
+use Fyre\FileSystem\Folder;
+use Fyre\Utility\Path;
+use PHPUnit\Framework\TestCase;
 
 final class FolderTest extends TestCase
 {
 
-    use
-        ContentsTest,
-        CopyTest,
-        CreateTest,
-        DeleteTest,
-        EmptyTest,
-        IsEmptyTest,
-        MoveTest,
-        SizeTest;
+    use ContentsTestTrait;
+    use CopyTestTrait;
+    use CreateTestTrait;
+    use DeleteTestTrait;
+    use EmptyTestTrait;
+    use IsEmptyTestTrait;
+    use MoveTestTrait;
+    use SizeTestTrait;
 
     public function testFolder(): void
     {

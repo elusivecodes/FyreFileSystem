@@ -3,14 +3,13 @@ declare(strict_types=1);
 
 namespace Tests\File;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
 
-trait SizeTest
+trait ContentsTestTrait
 {
 
-    public function testSize(): void
+    public function testContents(): void
     {
         $file = new File('tmp/test/test.txt', true);
         $file->open('w');
@@ -18,17 +17,17 @@ trait SizeTest
         $file->close();
 
         $this->assertSame(
-            4,
-            $file->size()
+            'test',
+            $file->contents()
         );
     }
 
-    public function testSizeNotExists(): void
+    public function testContentsNotExists(): void
     {
         $this->expectException(FileSystemException::class);
 
         $file = new File('tmp/test/test.txt');
-        $file->size();
+        $file->contents();
     }
 
 }

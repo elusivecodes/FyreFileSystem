@@ -3,49 +3,46 @@ declare(strict_types=1);
 
 namespace Fyre\FileSystem;
 
-use
-    finfo,
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\Utility\Path;
+use finfo;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\Utility\Path;
 
-use const
-    FILEINFO_MIME,
-    LOCK_EX,
-    LOCK_SH,
-    LOCK_UN;
+use const FILEINFO_MIME;
+use const LOCK_EX;
+use const LOCK_SH;
+use const LOCK_UN;
 
-use function
-    chmod,
-    copy,
-    decoct,
-    fclose,
-    feof,
-    fgetcsv,
-    file_exists,
-    file_get_contents,
-    fileatime,
-    filegroup,
-    filemtime,
-    fileowner,
-    fileperms,
-    filesize,
-    finfo_close,
-    flock,
-    fopen,
-    fread,
-    fseek,
-    ftell,
-    ftruncate,
-    fwrite,
-    is_executable,
-    is_file,
-    is_readable,
-    is_writable,
-    rewind,
-    strtok,
-    time,
-    touch,
-    unlink;
+use function chmod;
+use function copy;
+use function decoct;
+use function fclose;
+use function feof;
+use function fgetcsv;
+use function file_exists;
+use function file_get_contents;
+use function fileatime;
+use function filegroup;
+use function filemtime;
+use function fileowner;
+use function fileperms;
+use function filesize;
+use function finfo_close;
+use function flock;
+use function fopen;
+use function fread;
+use function fseek;
+use function ftell;
+use function ftruncate;
+use function fwrite;
+use function is_executable;
+use function is_file;
+use function is_readable;
+use function is_writable;
+use function rewind;
+use function strtok;
+use function time;
+use function touch;
+use function unlink;
 
 /**
  * File

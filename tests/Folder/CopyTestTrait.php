@@ -3,28 +3,27 @@ declare(strict_types=1);
 
 namespace Tests\Folder;
 
-use
-    Fyre\FileSystem\Exceptions\FileSystemException,
-    Fyre\FileSystem\File,
-    Fyre\FileSystem\Folder,
-    Fyre\Utility\Path;
+use Fyre\FileSystem\Exceptions\FileSystemException;
+use Fyre\FileSystem\File;
+use Fyre\FileSystem\Folder;
+use Fyre\Utility\Path;
 
-trait MoveTest
+trait CopyTestTrait
 {
 
-    public function testMove(): void
+    public function testCopy(): void
     {
         $folder = new Folder('tmp/test', true);
 
         $this->assertSame(
             $folder,
-            $folder->move('tmp/test2')
+            $folder->copy('tmp/test2')
         );
 
-        $folder2 = new Folder('tmp/test');
+        $folder2 = new Folder('tmp/test2');
 
         $this->assertSame(
-            Path::resolve('tmp/test2'),
+            Path::resolve('tmp/test'),
             $folder->path()
         );
 
@@ -32,35 +31,21 @@ trait MoveTest
             $folder->exists()
         );
 
-        $this->assertFalse(
+        $this->assertTrue(
             $folder2->exists()
         );
     }
 
-    public function testMoveDeep(): void
+    public function testCopyDeep(): void
     {
         $folder = new Folder('tmp/test', true);
         $file = new File('tmp/test/deep/test.txt', true);
 
-        $folder->move('tmp/test2');
+        $folder->copy('tmp/test2');
 
-        $folder2 = new Folder('tmp/test');
         $file2 = new File('tmp/test2/deep/test.txt');
 
-        $this->assertSame(
-            Path::resolve('tmp/test2'),
-            $folder->path()
-        );
-
-        $this->assertFalse(
-            $folder2->exists()
-        );
-
         $this->assertTrue(
-            $folder->exists()
-        );
-
-        $this->assertFalse(
             $file->exists()
         );
 
@@ -69,22 +54,22 @@ trait MoveTest
         );
     }
 
-    public function testMoveNotOverwrite(): void
+    public function testCopyNotOverwrite(): void
     {
         $this->expectException(FileSystemException::class);
 
         $folder = new Folder('tmp/test', true);
         new File('tmp/test/deep/test.txt', true);
         new File('tmp/test2/deep/test.txt', true);
-        $folder->move('tmp/test2', false);
+        $folder->copy('tmp/test2', false);
     }
 
-    public function testMoveNotExists(): void
+    public function testCopyNotExists(): void
     {
         $this->expectException(FileSystemException::class);
 
         $folder = new Folder('tmp/test');
-        $folder->move('tmp/test2');
+        $folder->copy('tmp/test2');
     }
 
 }
