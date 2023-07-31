@@ -9,7 +9,6 @@ use Fyre\Utility\Path;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
-
 use function chmod;
 use function copy;
 use function file_exists;
