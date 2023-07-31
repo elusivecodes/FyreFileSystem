@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Tests\Folder;
 
-use Fyre\FileSystem\File;
 use Fyre\FileSystem\Folder;
 use Fyre\Utility\Path;
 use PHPUnit\Framework\TestCase;

@@ -9,7 +9,6 @@ use Fyre\Utility\Path;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
-use const DIRECTORY_SEPARATOR;
 
 use function chmod;
 use function copy;
@@ -20,7 +19,6 @@ use function fileperms;
 use function is_dir;
 use function mkdir;
 use function rmdir;
-use function rtrim;
 use function str_replace;
 use function touch;
 use function unlink;
