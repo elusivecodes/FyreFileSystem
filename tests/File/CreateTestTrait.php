@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait CreateTestTrait
 {
-
     public function testCreate(): void
     {
         $file = new File('tmp/test.txt');
@@ -23,6 +22,14 @@ trait CreateTestTrait
         );
     }
 
+    public function testCreateExists(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $file = new File('tmp/test.txt', true);
+        $file->create();
+    }
+
     public function testCreateFolder(): void
     {
         $file = new File('tmp/test/test.txt');
@@ -33,13 +40,4 @@ trait CreateTestTrait
             $file->exists()
         );
     }
-
-    public function testCreateExists(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $file = new File('tmp/test.txt', true);
-        $file->create();
-    }
-
 }

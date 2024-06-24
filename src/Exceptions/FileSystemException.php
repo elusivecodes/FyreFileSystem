@@ -12,7 +12,6 @@ use function error_get_last;
  */
 class FileSystemException extends RuntimeException
 {
-
     public static function forFileExists(string $path): static
     {
         return new static('File already exists: '.$path);
@@ -44,5 +43,4 @@ class FileSystemException extends RuntimeException
 
         return new static($error['message'] ?? '');
     }
-
 }

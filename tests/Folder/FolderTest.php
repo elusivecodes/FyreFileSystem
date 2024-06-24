@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 final class FolderTest extends TestCase
 {
-
     use ContentsTestTrait;
     use CopyTestTrait;
     use CreateTestTrait;
@@ -19,13 +18,15 @@ final class FolderTest extends TestCase
     use MoveTestTrait;
     use SizeTestTrait;
 
-    public function testFolder(): void
+    protected function setUp(): void
     {
-        $folder = new Folder('tmp/test');
+        new Folder('tmp', true);
+    }
 
-        $this->assertFalse(
-            $folder->exists()
-        );
+    protected function tearDown(): void
+    {
+        $folder = new Folder('tmp');
+        $folder->delete();
     }
 
     public function testCreateNew(): void
@@ -33,6 +34,15 @@ final class FolderTest extends TestCase
         $folder = new Folder('tmp/test', true);
 
         $this->assertTrue(
+            $folder->exists()
+        );
+    }
+
+    public function testFolder(): void
+    {
+        $folder = new Folder('tmp/test');
+
+        $this->assertFalse(
             $folder->exists()
         );
     }
@@ -66,16 +76,4 @@ final class FolderTest extends TestCase
             $folder->path()
         );
     }
-
-    protected function setUp(): void
-    {
-        new Folder('tmp', true);
-    }
-
-    protected function tearDown(): void
-    {
-        $folder = new Folder('tmp');
-        $folder->delete();
-    }
-
 }

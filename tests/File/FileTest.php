@@ -10,7 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 final class FileTest extends TestCase
 {
-
     use AccessTimeTestTrait;
     use ChmodTestTrait;
     use CloseTestTrait;
@@ -33,12 +32,24 @@ final class FileTest extends TestCase
     use TruncateTestTrait;
     use WriteTestTrait;
 
-    public function testFile(): void
+    protected function setUp(): void
     {
-        $file = new File('tmp/test.txt');
+        new Folder('tmp', true);
+    }
 
-        $this->assertFalse(
-            $file->exists()
+    protected function tearDown(): void
+    {
+        $folder = new Folder('tmp');
+        $folder->delete();
+    }
+
+    public function testBaseName(): void
+    {
+        $file = new File('tmp/test/test.txt');
+
+        $this->assertSame(
+            'test.txt',
+            $file->baseName()
         );
     }
 
@@ -60,16 +71,6 @@ final class FileTest extends TestCase
         );
     }
 
-    public function testBaseName(): void
-    {
-        $file = new File('tmp/test/test.txt');
-
-        $this->assertSame(
-            'test.txt',
-            $file->baseName()
-        );
-    }
-
     public function testDirName(): void
     {
         $file = new File('tmp/test/test.txt');
@@ -87,6 +88,15 @@ final class FileTest extends TestCase
         $this->assertSame(
             'txt',
             $file->extension()
+        );
+    }
+
+    public function testFile(): void
+    {
+        $file = new File('tmp/test.txt');
+
+        $this->assertFalse(
+            $file->exists()
         );
     }
 
@@ -162,16 +172,4 @@ final class FileTest extends TestCase
             $file->path()
         );
     }
-
-    protected function setUp(): void
-    {
-        new Folder('tmp', true);
-    }
-
-    protected function tearDown(): void
-    {
-        $folder = new Folder('tmp');
-        $folder->delete();
-    }
-
 }

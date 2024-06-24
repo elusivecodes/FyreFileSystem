@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait ContentsTestTrait
 {
-
     public function testContents(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -29,5 +28,4 @@ trait ContentsTestTrait
         $file = new File('tmp/test/test.txt');
         $file->contents();
     }
-
 }

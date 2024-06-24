@@ -10,7 +10,6 @@ use function time;
 
 trait AccessTimeTestTrait
 {
-
     public function testAccessTime(): void
     {
         $time = time();
@@ -32,5 +31,4 @@ trait AccessTimeTestTrait
         $file = new File('tmp/test.txt');
         $file->accessTime();
     }
-
 }

@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait SeekTestTrait
 {
-
     public function testSeek(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -33,5 +32,4 @@ trait SeekTestTrait
         $file = new File('tmp/test/test.txt', true);
         $file->seek(0);
     }
-
 }

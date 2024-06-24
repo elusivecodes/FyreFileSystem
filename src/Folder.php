@@ -27,7 +27,6 @@ use function unlink;
  */
 class Folder
 {
-
     protected string $path;
 
     /**
@@ -53,11 +52,11 @@ class Folder
     {
         $this->checkExists();
 
-        $iterator = new FilesystemIterator($this->path);
+        $iterator = new FileSystemIterator($this->path);
 
         $contents = [];
 
-        foreach ($iterator AS $item) {
+        foreach ($iterator as $item) {
             $filePath = $item->getPathname();
 
             if ($item->isDir()) {
@@ -89,7 +88,7 @@ class Folder
             throw FileSystemException::forLastError();
         }
 
-        foreach ($this->getIterator(RecursiveIteratorIterator::SELF_FIRST) AS $item) {
+        foreach ($this->getIterator(RecursiveIteratorIterator::SELF_FIRST) as $item) {
             $filePath = $item->getPathname();
             $newPath = str_replace($this->path, $destination, $filePath);
 
@@ -161,7 +160,7 @@ class Folder
      */
     public function empty(): static
     {
-        foreach ($this->getIterator(RecursiveIteratorIterator::CHILD_FIRST) AS $item) {
+        foreach ($this->getIterator(RecursiveIteratorIterator::CHILD_FIRST) as $item) {
             $filePath = $item->getPathname();
 
             if ($item->isDir()) {
@@ -239,7 +238,7 @@ class Folder
     public function size(): int
     {
         $size = 0;
-        foreach ($this->getIterator(RecursiveIteratorIterator::SELF_FIRST) AS $item) {
+        foreach ($this->getIterator(RecursiveIteratorIterator::SELF_FIRST) as $item) {
             $size += $item->getSize();
         }
 
@@ -270,5 +269,4 @@ class Folder
 
         return new RecursiveIteratorIterator($directory, $mode);
     }
-
 }

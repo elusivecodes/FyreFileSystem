@@ -9,7 +9,6 @@ use Fyre\FileSystem\Folder;
 
 trait CreateTestTrait
 {
-
     public function testCreate(): void
     {
         $folder = new Folder('tmp/test');
@@ -40,5 +39,4 @@ trait CreateTestTrait
         $folder = new Folder('tmp/test', true);
         $folder->create();
     }
-
 }

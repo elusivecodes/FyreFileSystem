@@ -10,7 +10,6 @@ use Fyre\Utility\Path;
 
 trait CopyTestTrait
 {
-
     public function testCopy(): void
     {
         $folder = new Folder('tmp/test', true);
@@ -54,6 +53,14 @@ trait CopyTestTrait
         );
     }
 
+    public function testCopyNotExists(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $folder = new Folder('tmp/test');
+        $folder->copy('tmp/test2');
+    }
+
     public function testCopyNotOverwrite(): void
     {
         $this->expectException(FileSystemException::class);
@@ -63,13 +70,4 @@ trait CopyTestTrait
         new File('tmp/test2/deep/test.txt', true);
         $folder->copy('tmp/test2', false);
     }
-
-    public function testCopyNotExists(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $folder = new Folder('tmp/test');
-        $folder->copy('tmp/test2');
-    }
-
 }

@@ -10,7 +10,6 @@ use Fyre\Utility\Path;
 
 trait ContentsTestTrait
 {
-
     public function testContents(): void
     {
         $folder = new Folder('tmp/test', true);
@@ -18,29 +17,6 @@ trait ContentsTestTrait
         $this->assertSame(
             [],
             $folder->contents()
-        );
-    }
-
-    public function testContentsFolder(): void
-    {
-        $folder = new Folder('tmp/test', true);
-        new Folder('tmp/test/deep', true);
-
-        $contents = $folder->contents();
-
-        $this->assertCount(
-            1,
-            $contents
-        );
-
-        $this->assertInstanceOf(
-            Folder::class,
-            $contents[0]
-        );
-
-        $this->assertSame(
-            Path::resolve('tmp/test/deep'),
-            $contents[0]->path()
         );
     }
 
@@ -67,6 +43,29 @@ trait ContentsTestTrait
         );
     }
 
+    public function testContentsFolder(): void
+    {
+        $folder = new Folder('tmp/test', true);
+        new Folder('tmp/test/deep', true);
+
+        $contents = $folder->contents();
+
+        $this->assertCount(
+            1,
+            $contents
+        );
+
+        $this->assertInstanceOf(
+            Folder::class,
+            $contents[0]
+        );
+
+        $this->assertSame(
+            Path::resolve('tmp/test/deep'),
+            $contents[0]->path()
+        );
+    }
+
     public function testContentsNotExists(): void
     {
         $this->expectException(FileSystemException::class);
@@ -74,5 +73,4 @@ trait ContentsTestTrait
         $folder = new Folder('tmp/test');
         $folder->contents();
     }
-
 }

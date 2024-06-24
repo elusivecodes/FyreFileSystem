@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait ReadTestTrait
 {
-
     public function testRead(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -22,14 +21,6 @@ trait ReadTestTrait
         );
     }
 
-    public function testReadNoHandle(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $file = new File('tmp/test/test.txt', true);
-        $file->read(4);
-    }
-
     public function testReadInvalidHandle(): void
     {
         $this->expectException(FileSystemException::class);
@@ -39,4 +30,11 @@ trait ReadTestTrait
         $file->read(4);
     }
 
+    public function testReadNoHandle(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $file = new File('tmp/test/test.txt', true);
+        $file->read(4);
+    }
 }

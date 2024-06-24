@@ -9,7 +9,6 @@ use Fyre\FileSystem\Folder;
 
 trait SizeTestTrait
 {
-
     public function testSize(): void
     {
         $folder = new Folder('tmp/test', true);
@@ -42,5 +41,4 @@ trait SizeTestTrait
         $folder = new Folder('tmp/test');
         $folder->size();
     }
-
 }

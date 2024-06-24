@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait CsvTestTrait
 {
-
     public function testCsv(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -19,22 +18,14 @@ trait CsvTestTrait
         $file->rewind();
 
         $this->assertSame(
-            ['1','2','3','4'],
+            ['1', '2', '3', '4'],
             $file->csv()
         );
 
         $this->assertSame(
-            ['5','6','7','8'],
+            ['5', '6', '7', '8'],
             $file->csv()
         );
-    }
-
-    public function testCsvNoHandle(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $file = new File('tmp/test/test.txt', true);
-        $file->csv(4);
     }
 
     public function testCsvInvalidHandle(): void
@@ -46,4 +37,11 @@ trait CsvTestTrait
         $file->csv();
     }
 
+    public function testCsvNoHandle(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $file = new File('tmp/test/test.txt', true);
+        $file->csv(4);
+    }
 }

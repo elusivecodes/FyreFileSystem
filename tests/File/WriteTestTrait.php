@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait WriteTestTrait
 {
-
     public function testWrite(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -41,14 +40,6 @@ trait WriteTestTrait
         );
     }
 
-    public function testWriteNoHandle(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $file = new File('tmp/test/test.txt', true);
-        $file->write('test');
-    }
-
     public function testWriteInvalidHandle(): void
     {
         $this->expectException(FileSystemException::class);
@@ -58,4 +49,11 @@ trait WriteTestTrait
         $file->write('test');
     }
 
+    public function testWriteNoHandle(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $file = new File('tmp/test/test.txt', true);
+        $file->write('test');
+    }
 }

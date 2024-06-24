@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait RewindTestTrait
 {
-
     public function testRewind(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -33,5 +32,4 @@ trait RewindTestTrait
         $file = new File('tmp/test/test.txt', true);
         $file->rewind();
     }
-
 }

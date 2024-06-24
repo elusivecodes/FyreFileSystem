@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait CopyTestTrait
 {
-
     public function testCopy(): void
     {
         $file = new File('tmp/test.txt', true);
@@ -25,13 +24,12 @@ trait CopyTestTrait
         );
     }
 
-    public function testCopyNotOverwrite(): void
+    public function testCopyFolderNotExists(): void
     {
         $this->expectException(FileSystemException::class);
 
         $file = new File('tmp/test.txt', true);
-        new File('tmp/test2.txt', true);
-        $file->copy('tmp/test2.txt', false);
+        $file->copy('tmp/test/test2.txt');
     }
 
     public function testCopyNotExists(): void
@@ -42,12 +40,12 @@ trait CopyTestTrait
         $file->copy('tmp/test2.txt');
     }
 
-    public function testCopyFolderNotExists(): void
+    public function testCopyNotOverwrite(): void
     {
         $this->expectException(FileSystemException::class);
 
         $file = new File('tmp/test.txt', true);
-        $file->copy('tmp/test/test2.txt');
+        new File('tmp/test2.txt', true);
+        $file->copy('tmp/test2.txt', false);
     }
-
 }

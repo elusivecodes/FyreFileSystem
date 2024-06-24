@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait EndedTestTrait
 {
-
     public function testEnded(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -44,5 +43,4 @@ trait EndedTestTrait
         $file = new File('tmp/test/test.txt', true);
         $file->ended();
     }
-
 }

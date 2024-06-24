@@ -10,7 +10,6 @@ use function filegroup;
 
 trait GroupTestTrait
 {
-
     public function testGroup(): void
     {
         $file = new File('tmp/test.txt', true);
@@ -28,5 +27,4 @@ trait GroupTestTrait
         $file = new File('tmp/test.txt');
         $file->group();
     }
-
 }

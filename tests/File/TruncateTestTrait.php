@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait TruncateTestTrait
 {
-
     public function testTruncate(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -28,6 +27,23 @@ trait TruncateTestTrait
         );
     }
 
+    public function testTruncateInvalidHandle(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $file = new File('tmp/test/test.txt', true);
+        $file->open('r');
+        $file->truncate();
+    }
+
+    public function testTruncateNoHandle(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $file = new File('tmp/test/test.txt', true);
+        $file->truncate();
+    }
+
     public function testTruncateSize(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -41,22 +57,4 @@ trait TruncateTestTrait
             $file->contents()
         );
     }
-
-    public function testTruncateNoHandle(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $file = new File('tmp/test/test.txt', true);
-        $file->truncate();
-    }
-
-    public function testTruncateInvalidHandle(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $file = new File('tmp/test/test.txt', true);
-        $file->open('r');
-        $file->truncate();
-    }
-
 }

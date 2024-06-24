@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait MimeTypeTestTrait
 {
-
     public function testMimeType(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -29,5 +28,4 @@ trait MimeTypeTestTrait
         $file = new File('tmp/test/test.txt');
         $file->mimeType();
     }
-
 }

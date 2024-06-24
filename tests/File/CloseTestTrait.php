@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait CloseTestTrait
 {
-
     public function testClose(): void
     {
         $this->expectException(FileSystemException::class);
@@ -26,5 +25,4 @@ trait CloseTestTrait
         $file = new File('tmp/test/test.txt', true);
         $file->close();
     }
-
 }

@@ -9,7 +9,6 @@ use Fyre\FileSystem\Folder;
 
 trait EmptyTestTrait
 {
-
     public function testEmpty(): void
     {
         $folder = new Folder('tmp/test', true);
@@ -50,5 +49,4 @@ trait EmptyTestTrait
         $folder = new Folder('tmp/test2');
         $folder->empty();
     }
-
 }

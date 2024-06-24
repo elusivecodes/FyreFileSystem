@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait DeleteTestTrait
 {
-
     public function testDelete(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -30,5 +29,4 @@ trait DeleteTestTrait
         $file = new File('tmp/test/test.txt');
         $file->delete();
     }
-
 }

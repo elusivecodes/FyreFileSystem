@@ -10,7 +10,6 @@ use function fileowner;
 
 trait OwnerTestTrait
 {
-
     public function testOwner(): void
     {
         $file = new File('tmp/test.txt', true);
@@ -28,5 +27,4 @@ trait OwnerTestTrait
         $file = new File('tmp/test.txt');
         $file->owner();
     }
-
 }

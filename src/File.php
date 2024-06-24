@@ -7,11 +7,6 @@ use finfo;
 use Fyre\FileSystem\Exceptions\FileSystemException;
 use Fyre\Utility\Path;
 
-use const FILEINFO_MIME;
-use const LOCK_EX;
-use const LOCK_SH;
-use const LOCK_UN;
-
 use function chmod;
 use function copy;
 use function decoct;
@@ -44,21 +39,23 @@ use function time;
 use function touch;
 use function unlink;
 
+use const FILEINFO_MIME;
+use const LOCK_EX;
+use const LOCK_SH;
+use const LOCK_UN;
+
 /**
  * File
  */
 class File
 {
-
-    const LOCK_SHARED = LOCK_SH;
-    const LOCK_EXCLUSIVE = LOCK_EX;
-    const UNLOCK = LOCK_UN;
-
-    protected $handle = null;
-
-    protected string $path;
+    public const LOCK_EXCLUSIVE = LOCK_EX;
+    public const LOCK_SHARED = LOCK_SH;
+    public const UNLOCK = LOCK_UN;
 
     protected Folder $folder;
+    protected $handle;
+    protected string $path;
 
     /**
      * New File constructor.
@@ -626,5 +623,4 @@ class File
             throw FileSystemException::forInvalidHandle();
         }
     }
-
 }

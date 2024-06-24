@@ -9,7 +9,6 @@ use Fyre\FileSystem\Folder;
 
 trait DeleteTestTrait
 {
-
     public function testDelete(): void
     {
         $folder = new Folder('tmp/test2', true);
@@ -47,5 +46,4 @@ trait DeleteTestTrait
         $folder = new Folder('tmp/test2');
         $folder->delete();
     }
-
 }

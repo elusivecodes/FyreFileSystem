@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait ChmodTestTrait
 {
-
     public function testChmod(): void
     {
         $file = new File('tmp/test.txt', true);
@@ -26,5 +25,4 @@ trait ChmodTestTrait
         $file = new File('tmp/test.txt');
         $file->chmod(777);
     }
-
 }

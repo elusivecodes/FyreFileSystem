@@ -10,7 +10,6 @@ use Fyre\Utility\Path;
 
 trait MoveTestTrait
 {
-
     public function testMove(): void
     {
         $folder = new Folder('tmp/test', true);
@@ -68,6 +67,14 @@ trait MoveTestTrait
         );
     }
 
+    public function testMoveNotExists(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $folder = new Folder('tmp/test');
+        $folder->move('tmp/test2');
+    }
+
     public function testMoveNotOverwrite(): void
     {
         $this->expectException(FileSystemException::class);
@@ -77,13 +84,4 @@ trait MoveTestTrait
         new File('tmp/test2/deep/test.txt', true);
         $folder->move('tmp/test2', false);
     }
-
-    public function testMoveNotExists(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $folder = new Folder('tmp/test');
-        $folder->move('tmp/test2');
-    }
-
 }

@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait SizeTestTrait
 {
-
     public function testSize(): void
     {
         $file = new File('tmp/test/test.txt', true);
@@ -29,5 +28,4 @@ trait SizeTestTrait
         $file = new File('tmp/test/test.txt');
         $file->size();
     }
-
 }

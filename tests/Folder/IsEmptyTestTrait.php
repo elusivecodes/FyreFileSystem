@@ -9,7 +9,6 @@ use Fyre\FileSystem\Folder;
 
 trait IsEmptyTestTrait
 {
-
     public function testIsEmpty(): void
     {
         $folder = new Folder('tmp/test', true);
@@ -29,6 +28,14 @@ trait IsEmptyTestTrait
         );
     }
 
+    public function testIsEmptyNotExists(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $folder = new Folder('tmp/test');
+        $folder->isEmpty();
+    }
+
     public function testIsEmptyWithFile(): void
     {
         $folder = new Folder('tmp/test', true);
@@ -38,13 +45,4 @@ trait IsEmptyTestTrait
             $folder->isEmpty()
         );
     }
-
-    public function testIsEmptyNotExists(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $folder = new Folder('tmp/test');
-        $folder->isEmpty();
-    }
-
 }

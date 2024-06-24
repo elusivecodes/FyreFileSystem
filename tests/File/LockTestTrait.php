@@ -8,7 +8,6 @@ use Fyre\FileSystem\File;
 
 trait LockTestTrait
 {
-
     public function testLock(): void
     {
         $file = new File('tmp/test.txt', true);
@@ -18,6 +17,14 @@ trait LockTestTrait
             $file,
             $file->lock()
         );
+    }
+
+    public function testLockNoHandle(): void
+    {
+        $this->expectException(FileSystemException::class);
+
+        $file = new File('tmp/test.txt');
+        $file->lock();
     }
 
     public function testUnlock(): void
@@ -31,14 +38,6 @@ trait LockTestTrait
         );
     }
 
-    public function testLockNoHandle(): void
-    {
-        $this->expectException(FileSystemException::class);
-
-        $file = new File('tmp/test.txt');
-        $file->lock();
-    }
-
     public function testUnlockNoHandle(): void
     {
         $this->expectException(FileSystemException::class);
@@ -46,5 +45,4 @@ trait LockTestTrait
         $file = new File('tmp/test.txt');
         $file->unlock();
     }
-
 }

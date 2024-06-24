@@ -11,7 +11,6 @@ use function fileperms;
 
 trait PermissionsTestTrait
 {
-
     public function testPermissions(): void
     {
         $file = new File('tmp/test.txt', true);
@@ -31,5 +30,4 @@ trait PermissionsTestTrait
         $file = new File('tmp/test.txt');
         $file->permissions();
     }
-
 }
