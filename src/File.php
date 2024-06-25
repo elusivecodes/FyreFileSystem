@@ -50,15 +50,20 @@ use const LOCK_UN;
 class File
 {
     public const LOCK_EXCLUSIVE = LOCK_EX;
+
     public const LOCK_SHARED = LOCK_SH;
+
     public const UNLOCK = LOCK_UN;
 
     protected Folder $folder;
+
     protected $handle;
+
     protected string $path;
 
     /**
      * New File constructor.
+     *
      * @param string $path The file path.
      * @param bool $create Whether to create the file (if it doesn't exist).
      */
@@ -75,7 +80,9 @@ class File
 
     /**
      * Get the file access time.
+     *
      * @return int The file access time.
+     *
      * @throws FileSystemException if the access time could not be retrieved.
      */
     public function accessTime(): int
@@ -93,6 +100,7 @@ class File
 
     /**
      * Get the filename.
+     *
      * @return string The filename.
      */
     public function baseName(): string
@@ -102,8 +110,10 @@ class File
 
     /**
      * Change the file permissions.
+     *
      * @param int $permissions The file permissions.
      * @return File The File.
+     *
      * @throws FileSystemException if the permissions could not be updated.
      */
     public function chmod(int $permissions): static
@@ -119,7 +129,9 @@ class File
 
     /**
      * Close the file handle.
+     *
      * @return File The File.
+     *
      * @throws FileSystemException if the handle could not be closed.
      */
     public function close(): static
@@ -137,7 +149,9 @@ class File
 
     /**
      * Get the contents of the file.
+     *
      * @return string The contents of the file.
+     *
      * @throws FileSystemException if the contents could not be read.
      */
     public function contents(): string
@@ -155,9 +169,11 @@ class File
 
     /**
      * Copy the file to a new destination.
+     *
      * @param string $destination The destination.
      * @param bool $overwrite Whether to overwrite existing files.
      * @return File The File.
+     *
      * @throws FileSystemException if the file could not be copied.
      */
     public function copy(string $destination, bool $overwrite = true): static
@@ -182,7 +198,9 @@ class File
 
     /**
      * Create the file.
+     *
      * @return File The File.
+     *
      * @throws FileSystemException if the file exists.
      */
     public function create(): static
@@ -204,11 +222,13 @@ class File
 
     /**
      * Parse CSV values from a file.
+     *
      * @param int $length The maximum length to parse.
      * @param string $separator The field separator.
      * @param string $enclosure The field enclosure character.
      * @param string $escape The escape character.
      * @return array The parsed CSV values.
+     *
      * @throws FileSystemException if the file could not be parsed.
      */
     public function csv(int $length = 0, string $separator = ',', string $enclosure = '"', string $escape = '\\'): array
@@ -226,7 +246,9 @@ class File
 
     /**
      * Delete the file.
+     *
      * @return File The File.
+     *
      * @throws FileSystemException if the file could not be deleted.
      */
     public function delete(): static
@@ -242,6 +264,7 @@ class File
 
     /**
      * Get the directory name.
+     *
      * @return string The directory name.
      */
     public function dirName(): string
@@ -251,6 +274,7 @@ class File
 
     /**
      * Determine if the pointer is at the end of the file.
+     *
      * @return bool TRUE if the pointer is at the end of the file, otherwise FALSE.
      */
     public function ended(): bool
@@ -262,6 +286,7 @@ class File
 
     /**
      * Determine if the file exists.
+     *
      * @return bool TRUE if the file exists, otherwise FALSE.
      */
     public function exists(): bool
@@ -271,6 +296,7 @@ class File
 
     /**
      * Get the file extension.
+     *
      * @return string The file extension.
      */
     public function extension(): string
@@ -280,6 +306,7 @@ class File
 
     /**
      * Get the filename (without extension).
+     *
      * @return string The filename (without extension).
      */
     public function fileName(): string
@@ -289,6 +316,7 @@ class File
 
     /**
      * Get the Folder.
+     *
      * @return Folder The Folder.
      */
     public function folder(): Folder
@@ -298,7 +326,9 @@ class File
 
     /**
      * Get the file group.
+     *
      * @return int The file group.
+     *
      * @throws FileSystemException if the group could not be retrieved.
      */
     public function group(): int
@@ -316,6 +346,7 @@ class File
 
     /**
      * Determine if the file is executable.
+     *
      * @return bool TRUE if the file is executable, otherwise FALSE.
      */
     public function isExecutable(): bool
@@ -325,6 +356,7 @@ class File
 
     /**
      * Determine if the file is readable.
+     *
      * @return bool TRUE if the file is readable, otherwise FALSE.
      */
     public function isReadable(): bool
@@ -334,6 +366,7 @@ class File
 
     /**
      * Determine if the file is writable.
+     *
      * @return bool TRUE if the file is writable, otherwise FALSE.
      */
     public function isWritable(): bool
@@ -343,8 +376,10 @@ class File
 
     /**
      * Lock the file handle.
+     *
      * @param int|null $operation The lock operation.
      * @return File The File.
+     *
      * @throws FileSystemException if the lock could not be acquired.
      */
     public function lock(int|null $operation = null): static
@@ -360,6 +395,7 @@ class File
 
     /**
      * Get the MIME content type.
+     *
      * @return string The MIME content type.
      */
     public function mimeType(): string
@@ -375,7 +411,9 @@ class File
 
     /**
      * Get the file modified time.
+     *
      * @return int The file modified time.
+     *
      * @throws FileSystemException if the modified time could not be retrieved.
      */
     public function modifiedTime(): int
@@ -393,8 +431,10 @@ class File
 
     /**
      * Open a file handle.
+     *
      * @param string $mode The access mode.
      * @return File The File.
+     *
      * @throws FileSystemException if the handle could not be opened.
      */
     public function open(string $mode = 'r'): static
@@ -410,7 +450,9 @@ class File
 
     /**
      * Get the file owner.
+     *
      * @return int The file owner.
+     *
      * @throws FileSystemException if the owner could not be retrieved.
      */
     public function owner(): int
@@ -428,6 +470,7 @@ class File
 
     /**
      * Get the full path to the file.
+     *
      * @return string The full path.
      */
     public function path(): string
@@ -437,7 +480,9 @@ class File
 
     /**
      * Get the file permissions.
+     *
      * @return string The file permissions.
+     *
      * @throws FileSystemException if the permissions could not be retrieved.
      */
     public function permissions(): string
@@ -455,8 +500,10 @@ class File
 
     /**
      * Read file data.
+     *
      * @param int $length The number of bytes to read.
      * @return string The data.
+     *
      * @throws FileSystemException if the data could not be read.
      */
     public function read(int $length): string
@@ -474,7 +521,9 @@ class File
 
     /**
      * Rewind the pointer position.
+     *
      * @return File The File.
+     *
      * @throws FileSystemException if the handle could not be rewound.
      */
     public function rewind(): static
@@ -490,8 +539,10 @@ class File
 
     /**
      * Move the pointer position.
+     *
      * @param int $offset The new pointer position.
      * @return File The File.
+     *
      * @throws FileSystemException if the seek fails.
      */
     public function seek(int $offset): static
@@ -507,7 +558,9 @@ class File
 
     /**
      * Get the size of the file (in bytes).
+     *
      * @return int The size of the file (in bytes).
+     *
      * @throws FileSystemException if the size could not be read.
      */
     public function size(): int
@@ -525,7 +578,9 @@ class File
 
     /**
      * Get the current pointer position.
+     *
      * @return int The current pointer position.
+     *
      * @throws FileSystemException if the offset could not be read.
      */
     public function tell(): int
@@ -543,9 +598,11 @@ class File
 
     /**
      * Touch the file.
+     *
      * @param int|null $time The touch time.
      * @param int|null $accessTime The access time.
      * @return File The File.
+     *
      * @throws FileSystemException if the file could not be touched.
      */
     public function touch(int|null $time = null, int|null $accessTime = null): static
@@ -561,8 +618,10 @@ class File
 
     /**
      * Truncate the file.
+     *
      * @param int $size The size to truncate to.
      * @return File The File.
+     *
      * @throws FileSystemException if the file could not be truncated.
      */
     public function truncate(int $size = 0): static
@@ -578,6 +637,7 @@ class File
 
     /**
      * Unlock the file handle.
+     *
      * @return File The File.
      */
     public function unlock(): static
@@ -587,8 +647,10 @@ class File
 
     /**
      * Write data to the file.
+     *
      * @param string $data The data to write.
      * @return File The File.
+     *
      * @throws FileSystemException if the data could not be written.
      */
     public function write(string $data): static
@@ -604,6 +666,7 @@ class File
 
     /**
      * Check the file exists.
+     *
      * @throws FileSystemException if the file doesn't exist.
      */
     protected function checkExists(): void
@@ -615,6 +678,7 @@ class File
 
     /**
      * Check the file handle.
+     *
      * @throws FileSytemException if there's no file handle.
      */
     protected function checkHandle(): void

@@ -32,17 +32,6 @@ final class FileTest extends TestCase
     use TruncateTestTrait;
     use WriteTestTrait;
 
-    protected function setUp(): void
-    {
-        new Folder('tmp', true);
-    }
-
-    protected function tearDown(): void
-    {
-        $folder = new Folder('tmp');
-        $folder->delete();
-    }
-
     public function testBaseName(): void
     {
         $file = new File('tmp/test/test.txt');
@@ -171,5 +160,16 @@ final class FileTest extends TestCase
             Path::resolve('tmp/test.txt'),
             $file->path()
         );
+    }
+
+    protected function setUp(): void
+    {
+        new Folder('tmp', true);
+    }
+
+    protected function tearDown(): void
+    {
+        $folder = new Folder('tmp');
+        $folder->delete();
     }
 }

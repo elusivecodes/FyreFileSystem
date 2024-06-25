@@ -31,6 +31,7 @@ class Folder
 
     /**
      * New Folder constructor.
+     *
      * @param string $path The folder path.
      * @param bool $create Whether to create the folder (if it doesn't exist).
      * @param int $permissions The permissions.
@@ -46,6 +47,7 @@ class Folder
 
     /**
      * Get the contents of the folder.
+     *
      * @return array The contents of the folder.
      */
     public function contents(): array
@@ -71,9 +73,11 @@ class Folder
 
     /**
      * Copy the folder to a new destination.
+     *
      * @param string $destination The destination.
      * @param bool $overwrite Whether to overwrite existing files.
      * @return Folder The Folder.
+     *
      * @throws FileSystemException if the folder could not be copied.
      */
     public function copy(string $destination, bool $overwrite = true): static
@@ -120,8 +124,10 @@ class Folder
 
     /**
      * Create the folder.
+     *
      * @param int $permissions The permissions.
      * @return Folder The Folder.
+     *
      * @throws FileSystemException if the folder exists or creation fails.
      */
     public function create(int $permissions = 0755): static
@@ -139,7 +145,9 @@ class Folder
 
     /**
      * Delete the folder.
+     *
      * @return Folder The Folder.
+     *
      * @throws FileSystemException if the folder could not be removed.
      */
     public function delete(): static
@@ -155,7 +163,9 @@ class Folder
 
     /**
      * Empty the folder.
+     *
      * @return Folder The Folder.
+     *
      * @throws FileSystemException if the folder could not be emptied.
      */
     public function empty(): static
@@ -179,6 +189,7 @@ class Folder
 
     /**
      * Determine if the folder exists.
+     *
      * @return bool TRUE if the folder exists, otherwise FALSE.
      */
     public function exists(): bool
@@ -188,6 +199,7 @@ class Folder
 
     /**
      * Determine if the folder is empty.
+     *
      * @return bool TRUE if the folder is empty, otherwise FALSE.
      */
     public function isEmpty(): bool
@@ -199,6 +211,7 @@ class Folder
 
     /**
      * Move the folder to a new destination.
+     *
      * @param string $destination The destination.
      * @param bool $overwrite Whether to overwrite existing files.
      * @return Folder The Folder.
@@ -215,6 +228,7 @@ class Folder
 
     /**
      * Get the folder name.
+     *
      * @return string The folder name.
      */
     public function name(): string
@@ -224,6 +238,7 @@ class Folder
 
     /**
      * Get the full path to the folder.
+     *
      * @return string The full path.
      */
     public function path(): string
@@ -233,6 +248,7 @@ class Folder
 
     /**
      * Get the size of the folder (in bytes).
+     *
      * @return int The size of the folder (in bytes).
      */
     public function size(): int
@@ -247,6 +263,7 @@ class Folder
 
     /**
      * Check the folder exists.
+     *
      * @throws FileSystemException if the folder doesn't exist.
      */
     protected function checkExists(): void
@@ -258,6 +275,7 @@ class Folder
 
     /**
      * Get a recursive iterator for the folder.
+     *
      * @param int $mode The iterator mode.
      * @return RecursiveIteratorIterator The recursive iterator.
      */

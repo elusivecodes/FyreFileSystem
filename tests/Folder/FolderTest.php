@@ -18,17 +18,6 @@ final class FolderTest extends TestCase
     use MoveTestTrait;
     use SizeTestTrait;
 
-    protected function setUp(): void
-    {
-        new Folder('tmp', true);
-    }
-
-    protected function tearDown(): void
-    {
-        $folder = new Folder('tmp');
-        $folder->delete();
-    }
-
     public function testCreateNew(): void
     {
         $folder = new Folder('tmp/test', true);
@@ -75,5 +64,16 @@ final class FolderTest extends TestCase
             Path::resolve('tmp/test2'),
             $folder->path()
         );
+    }
+
+    protected function setUp(): void
+    {
+        new Folder('tmp', true);
+    }
+
+    protected function tearDown(): void
+    {
+        $folder = new Folder('tmp');
+        $folder->delete();
     }
 }
