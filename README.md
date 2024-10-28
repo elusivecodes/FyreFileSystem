@@ -127,7 +127,7 @@ $dirName = $file->dirName();
 
 **Ended**
 
-Determine if the pointer is at the end of the file.
+Determine whether the pointer is at the end of the file.
 
 ```php
 $ended = $file->ended();
@@ -135,7 +135,7 @@ $ended = $file->ended();
 
 **Exists**
 
-Determine if the file exists.
+Determine whether the file exists.
 
 ```php
 $exists = $file->exists();
@@ -175,7 +175,7 @@ $group = $file->group();
 
 **Is Executable**
 
-Determine if the file is executable.
+Determine whether the file is executable.
 
 ```php
 $isExecutable = $file->isExecutable();
@@ -183,7 +183,7 @@ $isExecutable = $file->isExecutable();
 
 **Is Readable**
 
-Determine if the file is readable.
+Determine whether the file is readable.
 
 ```php
 $isReadable = $file->isReadable();
@@ -191,7 +191,7 @@ $isReadable = $file->isReadable();
 
 **Is Writable**
 
-Determine if the file is writable.
+Determine whether the file is writable.
 
 ```php
 $isWritable = $file->isWritable();
@@ -400,7 +400,7 @@ $folder->empty();
 
 **Exists**
 
-Determine if the folder exists.
+Determine whether the folder exists.
 
 ```php
 $exists = $folder->exists();
@@ -408,7 +408,7 @@ $exists = $folder->exists();
 
 **Is Empty**
 
-Determine if the folder is empty.
+Determine whether the folder is empty.
 
 ```php
 $isEmpty = $folder->isEmpty();

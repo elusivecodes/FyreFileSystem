@@ -188,7 +188,7 @@ class Folder
     }
 
     /**
-     * Determine if the folder exists.
+     * Determine whether the folder exists.
      *
      * @return bool TRUE if the folder exists, otherwise FALSE.
      */
@@ -198,7 +198,7 @@ class Folder
     }
 
     /**
-     * Determine if the folder is empty.
+     * Determine whether the folder is empty.
      *
      * @return bool TRUE if the folder is empty, otherwise FALSE.
      */

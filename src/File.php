@@ -273,7 +273,7 @@ class File
     }
 
     /**
-     * Determine if the pointer is at the end of the file.
+     * Determine whether the pointer is at the end of the file.
      *
      * @return bool TRUE if the pointer is at the end of the file, otherwise FALSE.
      */
@@ -285,7 +285,7 @@ class File
     }
 
     /**
-     * Determine if the file exists.
+     * Determine whether the file exists.
      *
      * @return bool TRUE if the file exists, otherwise FALSE.
      */
@@ -345,7 +345,7 @@ class File
     }
 
     /**
-     * Determine if the file is executable.
+     * Determine whether the file is executable.
      *
      * @return bool TRUE if the file is executable, otherwise FALSE.
      */
@@ -355,7 +355,7 @@ class File
     }
 
     /**
-     * Determine if the file is readable.
+     * Determine whether the file is readable.
      *
      * @return bool TRUE if the file is readable, otherwise FALSE.
      */
@@ -365,7 +365,7 @@ class File
     }
 
     /**
-     * Determine if the file is writable.
+     * Determine whether the file is writable.
      *
      * @return bool TRUE if the file is writable, otherwise FALSE.
      */
