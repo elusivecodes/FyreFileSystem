@@ -6,6 +6,7 @@ namespace Fyre\FileSystem;
 use finfo;
 use Fyre\FileSystem\Exceptions\FileSystemException;
 use Fyre\Utility\Path;
+use Fyre\Utility\Traits\MacroTrait;
 
 use function chmod;
 use function copy;
@@ -49,6 +50,8 @@ use const LOCK_UN;
  */
 class File
 {
+    use MacroTrait;
+
     public const LOCK_EXCLUSIVE = LOCK_EX;
 
     public const LOCK_SHARED = LOCK_SH;

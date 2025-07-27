@@ -6,6 +6,7 @@ namespace Fyre\FileSystem;
 use FileSystemIterator;
 use Fyre\FileSystem\Exceptions\FileSystemException;
 use Fyre\Utility\Path;
+use Fyre\Utility\Traits\MacroTrait;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -27,6 +28,8 @@ use function unlink;
  */
 class Folder
 {
+    use MacroTrait;
+
     protected string $path;
 
     /**

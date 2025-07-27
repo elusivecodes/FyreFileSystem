@@ -5,7 +5,10 @@ namespace Tests\Folder;
 
 use Fyre\FileSystem\Folder;
 use Fyre\Utility\Path;
+use Fyre\Utility\Traits\MacroTrait;
 use PHPUnit\Framework\TestCase;
+
+use function class_uses;
 
 final class FolderTest extends TestCase
 {
@@ -33,6 +36,14 @@ final class FolderTest extends TestCase
 
         $this->assertFalse(
             $folder->exists()
+        );
+    }
+
+    public function testMacroable(): void
+    {
+        $this->assertContains(
+            MacroTrait::class,
+            class_uses(Folder::class)
         );
     }
 

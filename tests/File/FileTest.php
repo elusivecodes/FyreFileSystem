@@ -6,7 +6,10 @@ namespace Tests\File;
 use Fyre\FileSystem\File;
 use Fyre\FileSystem\Folder;
 use Fyre\Utility\Path;
+use Fyre\Utility\Traits\MacroTrait;
 use PHPUnit\Framework\TestCase;
+
+use function class_uses;
 
 final class FileTest extends TestCase
 {
@@ -139,6 +142,14 @@ final class FileTest extends TestCase
 
         $this->assertTrue(
             $file->isWritable()
+        );
+    }
+
+    public function testMacroable(): void
+    {
+        $this->assertContains(
+            MacroTrait::class,
+            class_uses(File::class)
         );
     }
 
