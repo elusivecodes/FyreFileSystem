@@ -30,7 +30,7 @@ class Folder
 {
     use MacroTrait;
 
-    protected string $path;
+    protected readonly string $path;
 
     /**
      * New Folder constructor.
@@ -224,9 +224,7 @@ class Folder
         $this->copy($destination, $overwrite);
         $this->delete();
 
-        $this->path = Path::resolve($destination);
-
-        return $this;
+        return new static($destination);
     }
 
     /**

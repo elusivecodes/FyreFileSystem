@@ -58,11 +58,11 @@ class File
 
     public const UNLOCK = LOCK_UN;
 
-    protected Folder $folder;
+    protected readonly Folder $folder;
 
     protected $handle;
 
-    protected string $path;
+    protected readonly string $path;
 
     /**
      * New File constructor.

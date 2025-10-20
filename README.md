@@ -422,7 +422,7 @@ Move the folder to a new destination.
 - `$overwrite` is a boolean indicating whether to overwrite existing files, and will default to *true*.
 
 ```php
-$folder->move($destination, $overwrite);
+$newFolder = $folder->move($destination, $overwrite);
 ```
 
 **Name**

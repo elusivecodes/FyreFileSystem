@@ -12,54 +12,51 @@ trait MoveTestTrait
 {
     public function testMove(): void
     {
-        $folder = new Folder('tmp/test', true);
+        $folder1 = new Folder('tmp/test', true);
+        $folder2 = $folder1->move('tmp/test2');
 
-        $this->assertSame(
-            $folder,
-            $folder->move('tmp/test2')
-        );
-
-        $folder2 = new Folder('tmp/test');
-
-        $this->assertSame(
-            Path::resolve('tmp/test2'),
-            $folder->path()
-        );
-
-        $this->assertTrue(
-            $folder->exists()
+        $this->assertNotSame(
+            $folder1,
+            $folder2
         );
 
         $this->assertFalse(
+            $folder1->exists()
+        );
+
+        $this->assertSame(
+            Path::resolve('tmp/test2'),
+            $folder2->path()
+        );
+
+        $this->assertTrue(
             $folder2->exists()
         );
     }
 
     public function testMoveDeep(): void
     {
-        $folder = new Folder('tmp/test', true);
-        $file = new File('tmp/test/deep/test.txt', true);
+        $folder1 = new Folder('tmp/test', true);
+        $file1 = new File('tmp/test/deep/test.txt', true);
 
-        $folder->move('tmp/test2');
-
-        $folder2 = new Folder('tmp/test');
+        $folder2 = $folder1->move('tmp/test2');
         $file2 = new File('tmp/test2/deep/test.txt');
+
+        $this->assertFalse(
+            $folder1->exists()
+        );
+
+        $this->assertFalse(
+            $file1->exists()
+        );
 
         $this->assertSame(
             Path::resolve('tmp/test2'),
-            $folder->path()
-        );
-
-        $this->assertFalse(
-            $folder2->exists()
+            $folder2->path()
         );
 
         $this->assertTrue(
-            $folder->exists()
-        );
-
-        $this->assertFalse(
-            $file->exists()
+            $folder2->exists()
         );
 
         $this->assertTrue(
