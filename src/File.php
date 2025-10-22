@@ -74,8 +74,6 @@ class File
     {
         $this->path = Path::resolve($path);
 
-        $this->folder = new Folder($this->dirName(), $create);
-
         if ($create && !$this->exists()) {
             $this->create();
         }
@@ -212,8 +210,8 @@ class File
             throw FileSystemException::forFileExists($this->path);
         }
 
-        if (!$this->folder->exists()) {
-            $this->folder->create();
+        if (!$this->folder()->exists()) {
+            $this->folder()->create();
         }
 
         if (!$this->exists()) {
@@ -324,7 +322,7 @@ class File
      */
     public function folder(): Folder
     {
-        return $this->folder;
+        return $this->folder ??= new Folder($this->dirName());
     }
 
     /**
